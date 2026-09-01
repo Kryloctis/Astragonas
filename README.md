@@ -78,12 +78,12 @@ Assets are organized into modular categories:
 ## Requirements Checklist
 
 - [x] Use 3D assets for game objects such as ships and enemies. Assets are under `Assets/Enemies/` and `Assets/Player/`.
-- [ ] Use at least one particle system, either legacy particles or VFX Graph.
+- [x] Use at least one particle system, either legacy particles or VFX Graph. Particle system used for player engine/flame effects.
 - [ ] Include user interface elements, with the player score shown at minimum using UGUI.
 - [x] Include simple music and sound effects. Audio assets are under `Assets/Audio`.
 - [x] Add a creative transformation of the game presentation with skybox system.
 - [x] Write the game code in C# under `Assets/Scripts`.
-- [ ] Verify that no visual scripting is used, except for shader code or Shader Graph.
+- [x] Verify that no visual scripting is used, except for shader code or Shader Graph. No visual scripting employed.
 - [x] Use Unity 6.3 LTS with the Universal Render Pipeline. The project uses Unity `6000.3.22f1` and URP.
 - [x] Confirm that third-party assets used are limited to models, graphics, audio, and effects.
 - [x] Verify that the core code driving the game is entirely original.
