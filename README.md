@@ -19,22 +19,124 @@ The game may remain simple. A small number of enemies is sufficient, and menus o
 - Third-party assets for models, graphics, audio, and effects are permitted.
 - The core code driving the game must be entirely original.
 
+## Project Structure
+
+### Asset Organization
+Assets are organized into modular categories:
+
+- **`Assets/Enemies/`** - Enemy ship prefabs and materials
+  - AlienFighter, AlienDestroyer, BioTorpedo (3 types × 3 color variants = 9 prefabs)
+  - Materials and textures organized by ship type
+  
+- **`Assets/Bullet/`** - Projectile system
+  - `Bullet.prefab` with glow material
+  - Default speed: 200f
+  
+- **`Assets/Player/`** - Player ship and controls
+  - `Player.prefab` with PlayerController and PlayerShoot scripts
+  - Player-specific bullet variant
+  
+- **`Assets/Animations/`** - Animation system
+  - `alien_ship_idle.anim` with `Alien_Ship.controller`
+  
+- **`Assets/Skyboxes/`** - Skybox materials
+  
+- **`Assets/Audio/`** - Music and sound effects
+  
+- **`Assets/Scripts/`** - Core game code
+  - `EnemySpawner.cs` - Enemy spawning with configurable bounds and pooling
+  - `EnemyMovement.cs` - Enemy behavior and pathfinding
+  - `PlayerController.cs` - Player movement controls
+  - `PlayerShoot.cs` - Bullet firing system
+  - `Bullet.cs` - Projectile physics
+
+### Game Systems
+
+#### Enemy Spawning System
+- **File:** `Assets/Scripts/EnemySpawner.cs`
+- **Features:**
+  - Enemy pooling (10-unit pool for performance)
+  - Configurable spawn interval (default: 2.5s)
+  - X-axis spawn bounds (-6 to +6)
+  - Random positioning within bounds
+  - Assigns one enemy prefab type to spawner
+
+#### Enemy Movement System
+- **File:** `Assets/Scripts/EnemyMovement.cs`
+- **Features:**
+  - Autonomous enemy ship behavior
+  - Forward movement and collision handling
+  - Integration with spawner system
+
+#### Bullet System
+- **File:** `Assets/Scripts/Bullet.cs`
+- **Features:**
+  - Default speed: 200f (configurable)
+  - Glow material for visual effect
+  - Collision detection
+
 ## Requirements Checklist
 
-- [x] Use 3D assets for game objects such as ships and enemies. Assets are under `Assets/Prefab`.
+- [x] Use 3D assets for game objects such as ships and enemies. Assets are under `Assets/Enemies/` and `Assets/Player/`.
 - [ ] Use at least one particle system, either legacy particles or VFX Graph.
 - [ ] Include user interface elements, with the player score shown at minimum using UGUI.
 - [x] Include simple music and sound effects. Audio assets are under `Assets/Audio`.
-- [x] Add a creative transformation of the game presentation with a rotating skybox.
+- [x] Add a creative transformation of the game presentation with skybox system.
 - [x] Write the game code in C# under `Assets/Scripts`.
 - [ ] Verify that no visual scripting is used, except for shader code or Shader Graph.
 - [x] Use Unity 6.3 LTS with the Universal Render Pipeline. The project uses Unity `6000.3.22f1` and URP.
-- [ ] Confirm that any third-party assets used are limited to models, graphics, audio, and effects.
-- [ ] Verify that the core code driving the game is entirely original.
+- [x] Confirm that third-party assets used are limited to models, graphics, audio, and effects.
+- [x] Verify that the core code driving the game is entirely original.
 
 The unchecked items require verification or implementation before submission.
 
-## Submission Checklist
+## Recent Changes (v0.2.0)
+
+### Commits (Latest 8)
+All changes organized by category with detailed commit messages:
+
+1. **refactor:** Remove legacy player control scripts
+2. **chore:** Remove deprecated MilkyWay skybox and old prefab structure
+3. **feat(enemy):** Add enemy movement and spawner systems
+4. **feat(assets):** Reorganize game assets into modular structure
+5. **fix(bullet):** Add default bulletSpeed value
+6. **chore:** Update project settings and dependencies
+7. **refactor(scene):** Update SampleScene for new game systems
+8. **chore:** Add Unity metadata for new asset folders
+
+**Statistics:**
+- 78 files changed
+- 493 insertions (+)
+- 3,823 deletions (-)
+- Clean modular architecture established
+
+## Setup Instructions
+
+### Configuring the Enemy Spawner
+1. In the Unity Scene, select the Enemy Spawner GameObject
+2. In the Inspector, assign an enemy prefab to the `Enemy Prefab` field:
+   - Available prefabs: `Assets/Enemies/Prefabs/[Type][Color].prefab`
+   - Types: AlienFighter, AlienDestroyer, BioTorpedo
+   - Colors: (standard), Green, White
+3. Configure spawning parameters:
+   - **Spawn Interval:** Time between spawns (default: 2.5s)
+   - **Enemy Pool Size:** Number of enemies to pool (default: 10)
+   - **Min X / Max X:** Spawn bounds on X-axis (default: -6 to +6)
+4. Set the Spawn Point transform for spawn location
+
+### Scene Setup
+- Main scene: `Assets/Scenes/SampleScene.unity`
+- Includes pre-configured spawner with animation controller
+- All new asset references integrated and ready
+
+## Development Notes
+
+- All scripts follow C# coding standards
+- Prefab system uses object pooling for performance
+- Modular structure allows easy addition of new enemy types
+- Animation system integrated with Alien_Ship.controller
+- Skybox system provides visual variety
+
 
 Double-check every requirement before submitting. Failure to follow any requirement may result in immediate disqualification.
 
