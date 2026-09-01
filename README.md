@@ -50,31 +50,6 @@ Assets are organized into modular categories:
   - `PlayerShoot.cs` - Bullet firing system
   - `Bullet.cs` - Projectile physics
 
-### Game Systems
-
-#### Enemy Spawning System
-- **File:** `Assets/Scripts/EnemySpawner.cs`
-- **Features:**
-  - Enemy pooling (10-unit pool for performance)
-  - Configurable spawn interval (default: 2.5s)
-  - X-axis spawn bounds (-6 to +6)
-  - Random positioning within bounds
-  - Assigns one enemy prefab type to spawner
-
-#### Enemy Movement System
-- **File:** `Assets/Scripts/EnemyMovement.cs`
-- **Features:**
-  - Autonomous enemy ship behavior
-  - Forward movement and collision handling
-  - Integration with spawner system
-
-#### Bullet System
-- **File:** `Assets/Scripts/Bullet.cs`
-- **Features:**
-  - Default speed: 200f (configurable)
-  - Glow material for visual effect
-  - Collision detection
-
 ## Requirements Checklist
 
 - [x] Use 3D assets for game objects such as ships and enemies. Assets are under `Assets/Enemies/` and `Assets/Player/`.
