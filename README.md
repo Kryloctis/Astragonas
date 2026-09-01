@@ -19,37 +19,6 @@ The game may remain simple. A small number of enemies is sufficient, and menus o
 - Third-party assets for models, graphics, audio, and effects are permitted.
 - The core code driving the game must be entirely original.
 
-## Project Structure
-
-### Asset Organization
-Assets are organized into modular categories:
-
-- **`Assets/Enemies/`** - Enemy ship prefabs and materials
-  - AlienFighter, AlienDestroyer, BioTorpedo (3 types × 3 color variants = 9 prefabs)
-  - Materials and textures organized by ship type
-  
-- **`Assets/Bullet/`** - Projectile system
-  - `Bullet.prefab` with glow material
-  - Default speed: 200f
-  
-- **`Assets/Player/`** - Player ship and controls
-  - `Player.prefab` with PlayerController and PlayerShoot scripts
-  - Player-specific bullet variant
-  
-- **`Assets/Animations/`** - Animation system
-  - `alien_ship_idle.anim` with `Alien_Ship.controller`
-  
-- **`Assets/Skyboxes/`** - Skybox materials
-  
-- **`Assets/Audio/`** - Music and sound effects
-  
-- **`Assets/Scripts/`** - Core game code
-  - `EnemySpawner.cs` - Enemy spawning with configurable bounds and pooling
-  - `EnemyMovement.cs` - Enemy behavior and pathfinding
-  - `PlayerController.cs` - Player movement controls
-  - `PlayerShoot.cs` - Bullet firing system
-  - `Bullet.cs` - Projectile physics
-
 ## Requirements Checklist
 
 - [x] Use 3D assets for game objects such as ships and enemies. Assets are under `Assets/Enemies/` and `Assets/Player/`.
